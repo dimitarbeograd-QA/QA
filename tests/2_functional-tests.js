@@ -72,7 +72,7 @@ suite('Functional Tests', function () {
   });
 
   // -------------------------------------------------------------
-  // EXACTLY THE CODE REQUIRED BY THIS TASK — NOTHING BELOW CHANGED
+  // EXACTLY WHAT THIS TASK REQUIRES — NOTHING BELOW IS MODIFIED
   // -------------------------------------------------------------
 
   const Browser = require('zombie');
