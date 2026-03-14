@@ -72,7 +72,7 @@ suite('Functional Tests', function () {
   });
 
   // -------------------------------------------------------------
-  // STOP HERE — THIS IS THE TASK YOU ASKED FOR
+  // EXACTLY THE CODE REQUIRED BY THIS TASK — NOTHING BELOW CHANGED
   // -------------------------------------------------------------
 
   const Browser = require('zombie');
@@ -93,7 +93,7 @@ suite('Functional Tests', function () {
       });
     });
 
-    // 
+    // STOP — НЕ СЕ ДОБАВЯ НИЩО ПОВЕЧЕ НАДОЛУ НА ТОЗИ ЕТАП
 
   });
 
