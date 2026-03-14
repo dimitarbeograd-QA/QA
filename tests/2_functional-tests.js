@@ -11,7 +11,6 @@ suite('Functional Tests', function () {
 
   suite('Integration tests with chai-http', function () {
 
-    // #1
     test('Test GET /hello with no name', function (done) {
       chai
         .request(server)
@@ -24,7 +23,6 @@ suite('Functional Tests', function () {
         });
     });
 
-    // #2
     test('Test GET /hello with your name', function (done) {
       chai
         .request(server)
@@ -37,7 +35,6 @@ suite('Functional Tests', function () {
         });
     });
 
-    // #3
     test('Send {surname: "Colombo"}', function (done) {
       chai
         .request(server)
@@ -53,7 +50,6 @@ suite('Functional Tests', function () {
         });
     });
 
-    // #4
     test('Send {surname: "da Verrazzano"}', function (done) {
       chai
         .request(server)
@@ -70,10 +66,6 @@ suite('Functional Tests', function () {
     });
 
   });
-
-  // -------------------------------------------------------------
-  // ZOMBIE.JS TESTS
-  // -------------------------------------------------------------
 
   const Browser = require('zombie');
   Browser.site = 'http://0.0.0.0:3000';
@@ -95,7 +87,6 @@ suite('Functional Tests', function () {
 
     suite('"Famous Italian Explorers" form', function () {
 
-      // #5
       test('Submit the surname "Colombo" in the HTML form', function (done) {
         browser.fill('surname', 'Colombo').pressButton('submit', function () {
           assert.equal(browser.text('#name'), 'Cristoforo');
@@ -104,7 +95,6 @@ suite('Functional Tests', function () {
         });
       });
 
-      // #6
       test('Submit the surname "Vespucci" in the HTML form', function (done) {
         browser.fill('surname', 'Vespucci').pressButton('submit', function () {
           assert.equal(browser.text('#name'), 'Amerigo');
