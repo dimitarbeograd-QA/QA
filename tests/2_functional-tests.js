@@ -72,7 +72,7 @@ suite('Functional Tests', function () {
   });
 
   // -------------------------------------------------------------
-  // EXACTLY WHAT THIS TASK REQUIRES — NOTHING BELOW IS MODIFIED
+  // ZOMBIE.JS TESTS
   // -------------------------------------------------------------
 
   const Browser = require('zombie');
@@ -93,8 +93,27 @@ suite('Functional Tests', function () {
       });
     });
 
-    // STOP — НЕ СЕ ДОБАВЯ НИЩО ПОВЕЧЕ НАДОЛУ НА ТОЗИ ЕТАП
+    suite('"Famous Italian Explorers" form', function () {
 
+      // #5
+      test('Submit the surname "Colombo" in the HTML form', function (done) {
+        browser.fill('surname', 'Colombo').pressButton('submit', function () {
+          assert.equal(browser.text('#name'), 'Cristoforo');
+          assert.equal(browser.text('#surname'), 'Colombo');
+          done();
+        });
+      });
+
+      // #6
+      test('Submit the surname "Vespucci" in the HTML form', function (done) {
+        browser.fill('surname', 'Vespucci').pressButton('submit', function () {
+          assert.equal(browser.text('#name'), 'Amerigo');
+          assert.equal(browser.text('#surname'), 'Vespucci');
+          done();
+        });
+      });
+
+    });
   });
 
 });
