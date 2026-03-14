@@ -77,7 +77,7 @@ suite('Functional Tests', function () {
 
   const Browser = require('zombie');
 
-  // IMPORTANT: Use your real Render URL here
+  // IMPORTANT: Use your real Render URL
   Browser.site = 'https://qa-w0ba.onrender.com';
 
   suite('Functional Tests with Zombie.js', function () {
