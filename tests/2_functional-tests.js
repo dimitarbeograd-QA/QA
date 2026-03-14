@@ -6,6 +6,9 @@ const server = require('../server');
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 
+const Browser = require('zombie');
+Browser.site = 'http://0.0.0.0:3000';
+
 suite('Functional Tests', function () {
   this.timeout(5000);
 
@@ -71,10 +74,7 @@ suite('Functional Tests', function () {
 
   });
 
-  // -------------------------------------------------------------
-
-  const Browser = require('zombie');
-  Browser.site = 'http://0.0.0.0:3000';
+  // ---------------- Zombie.js ----------------
 
   const browser = new Browser();
 
