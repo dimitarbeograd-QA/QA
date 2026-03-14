@@ -11,6 +11,7 @@ suite('Functional Tests', function () {
 
   suite('Integration tests with chai-http', function () {
 
+    // #1
     test('Test GET /hello with no name', function (done) {
       chai
         .request(server)
@@ -23,6 +24,7 @@ suite('Functional Tests', function () {
         });
     });
 
+    // #2
     test('Test GET /hello with your name', function (done) {
       chai
         .request(server)
@@ -35,6 +37,7 @@ suite('Functional Tests', function () {
         });
     });
 
+    // #3
     test('Send {surname: "Colombo"}', function (done) {
       chai
         .request(server)
@@ -50,6 +53,7 @@ suite('Functional Tests', function () {
         });
     });
 
+    // #4
     test('Send {surname: "da Verrazzano"}', function (done) {
       chai
         .request(server)
@@ -67,7 +71,13 @@ suite('Functional Tests', function () {
 
   });
 
+  // -------------------------------------------------------------
+  // ZOMBIE.JS TESTS
+  // -------------------------------------------------------------
+
   const Browser = require('zombie');
+
+  // IMPORTANT: Use your real Render URL here
   Browser.site = 'https://qa-w0ba.onrender.com';
 
   suite('Functional Tests with Zombie.js', function () {
@@ -87,19 +97,29 @@ suite('Functional Tests', function () {
 
     suite('"Famous Italian Explorers" form', function () {
 
+      // #5
       test('Submit the surname "Colombo" in the HTML form', function (done) {
-        browser.fill('surname', 'Colombo').pressButton('submit', function () {
-          assert.equal(browser.text('#name'), 'Cristoforo');
-          assert.equal(browser.text('#surname'), 'Colombo');
-          done();
+        browser.fill('surname', 'Colombo').then(() => {
+          browser.pressButton('submit', () => {
+            browser.assert.success();
+            browser.assert.text('span#name', 'Cristoforo');
+            browser.assert.text('span#surname', 'Colombo');
+            browser.assert.elements('span#dates', 1);
+            done();
+          });
         });
       });
 
+      // #6
       test('Submit the surname "Vespucci" in the HTML form', function (done) {
-        browser.fill('surname', 'Vespucci').pressButton('submit', function () {
-          assert.equal(browser.text('#name'), 'Amerigo');
-          assert.equal(browser.text('#surname'), 'Vespucci');
-          done();
+        browser.fill('surname', 'Vespucci').then(() => {
+          browser.pressButton('submit', () => {
+            browser.assert.success();
+            browser.assert.text('span#name', 'Amerigo');
+            browser.assert.text('span#surname', 'Vespucci');
+            browser.assert.elements('span#dates', 1);
+            done();
+          });
         });
       });
 
