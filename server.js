@@ -11,7 +11,7 @@ const LocalStrategy = require('passport-local');
 const app = express();
 
 // -----------------------------
-// 1. Настройка на Pug (ВАЖНО)
+// 1. Настройка на Pug
 // -----------------------------
 app.set('view engine', 'pug');
 app.set('views', './views/pug');
@@ -35,10 +35,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // -----------------------------
-// 2. Основен маршрут (за теста)
+// 2. Основен маршрут
 // -----------------------------
 app.route('/').get((req, res) => {
-  res.render('index');   // FreeCodeCamp ИСКА ТОЧНО ТОВА
+  res.render('index');
 });
 
 // -----------------------------
