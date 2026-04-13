@@ -1,3 +1,4 @@
+console.log("DEBUG MONGO_URI:", URI);
 const { MongoClient } = require('mongodb');
 require('dotenv').config();
 
