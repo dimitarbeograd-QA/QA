@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(session({
-  secret: process.env.SESSION_SECRET,
+  secret: process.env.SESSION_SECRET || 'defaultSecret',
   resave: true,
   saveUninitialized: true,
   cookie: { secure: false }
@@ -53,6 +53,7 @@ function ensureAuthenticated(req, res, next) {
 // 3. Свързване с базата данни
 // -----------------------------
 myDB(async (client) => {
+
   const myDataBase = await client.db('database').collection('users');
 
   // Passport стратегия
@@ -111,7 +112,7 @@ myDB(async (client) => {
 
   // Logout
   app.get('/logout', (req, res) => {
-    req.logout();
+    req.logout(() => {});
     res.redirect('/');
   });
 
