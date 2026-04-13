@@ -1,8 +1,10 @@
-console.log("DEBUG MONGO_URI:", URI);
 const { MongoClient } = require('mongodb');
 require('dotenv').config();
 
 const URI = process.env.MONGO_URI;
+
+// DEBUG – виждаме какво зарежда Node.js
+console.log("DEBUG MONGO_URI:", URI);
 
 module.exports = async function (callback) {
   const client = new MongoClient(URI, { useUnifiedTopology: true });
