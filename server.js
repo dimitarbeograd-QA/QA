@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 app.set('view engine', 'pug');
-app.set('views', './views/pug');
+app.set('views', __dirname + '/views/pug');
 
 app.get('/', (req, res) => {
   res.render('index');
